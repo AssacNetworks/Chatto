@@ -160,10 +160,10 @@ public extension TextMessageCollectionViewCellDefaultStyle { // Default values
 
     static func createDefaultTextStyle() -> TextStyle {
         return TextStyle(
-            font: UIFont.systemFont(ofSize: 16),
+            font: UIFont(name: "Roboto-Regular", size: 14)!,
             incomingColor: UIColor.black,
-            outgoingColor: UIColor.white,
-            incomingInsets: UIEdgeInsets(top: 10, left: 19, bottom: 10, right: 15),
+            outgoingColor: UIColor.black,
+            incomingInsets: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 5),
             outgoingInsets: UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 19)
         )
     }
