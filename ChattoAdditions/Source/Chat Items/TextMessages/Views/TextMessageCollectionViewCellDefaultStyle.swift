@@ -163,7 +163,7 @@ public extension TextMessageCollectionViewCellDefaultStyle { // Default values
             font: UIFont(name: "Roboto-Regular", size: 14)!,
             incomingColor: UIColor.black,
             outgoingColor: UIColor.black,
-            incomingInsets: UIEdgeInsets(top: 10, left: 19, bottom: 10, right: 19),
+            incomingInsets: UIEdgeInsets(top: 10, left: 19, bottom: 10, right: 15),
             outgoingInsets: UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 19)
         )
     }
