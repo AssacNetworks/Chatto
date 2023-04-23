@@ -116,6 +116,10 @@ open class BaseChatViewController: UIViewController,
         self.collectionView?.dataSource = nil
     }
 
+    
+    /*
+     
+     */
     open override func loadView() {
         if substitutesMainViewAutomatically {
             self.view = BaseChatViewControllerView() // http://stackoverflow.com/questions/24596031/uiviewcontroller-with-inputaccessoryview-is-not-deallocated
@@ -128,6 +132,7 @@ open class BaseChatViewController: UIViewController,
 
     override open func viewDidLoad() {
         super.viewDidLoad()
+        
         self.addCollectionView()
         self.addInputBarContainer()
         self.addInputView()
@@ -163,7 +168,7 @@ open class BaseChatViewController: UIViewController,
         collectionView.contentInset = self.layoutConfiguration.contentInsets
         collectionView.scrollIndicatorInsets = self.layoutConfiguration.scrollIndicatorInsets
         collectionView.alwaysBounceVertical = true
-        collectionView.backgroundColor = UIColor.clear
+        collectionView.backgroundColor = UIColor.red//--
         collectionView.keyboardDismissMode = .interactive
         collectionView.showsVerticalScrollIndicator = true
         collectionView.showsHorizontalScrollIndicator = false
@@ -214,7 +219,7 @@ open class BaseChatViewController: UIViewController,
         self.inputBarContainer = UIView(frame: CGRect.zero)
         self.inputBarContainer.autoresizingMask = UIView.AutoresizingMask()
         self.inputBarContainer.translatesAutoresizingMaskIntoConstraints = false
-        self.inputBarContainer.backgroundColor = .white
+        self.inputBarContainer.backgroundColor = UIColor.lightGray//--
         self.view.addSubview(self.inputBarContainer)
         self.view.addConstraint(NSLayoutConstraint(item: self.inputBarContainer, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0))
         let leadingAnchor: NSLayoutXAxisAnchor
@@ -249,7 +254,12 @@ open class BaseChatViewController: UIViewController,
         self.inputContentContainer = UIView(frame: CGRect.zero)
         self.inputContentContainer.autoresizingMask = UIView.AutoresizingMask()
         self.inputContentContainer.translatesAutoresizingMaskIntoConstraints = false
-        self.inputContentContainer.backgroundColor = .white
+        
+        if #available(iOS 13.0, *) {
+            self.inputContentContainer.backgroundColor = UIColor.systemBackground
+            //UIColor.black
+        } //--
+        
         self.view.addSubview(self.inputContentContainer)
         self.view.addConstraint(NSLayoutConstraint(item: self.inputContentContainer, attribute: .top, relatedBy: .equal, toItem: self.inputBarContainer, attribute: .bottom, multiplier: 1, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .leading, relatedBy: .equal, toItem: self.inputContentContainer, attribute: .leading, multiplier: 1, constant: 0))
